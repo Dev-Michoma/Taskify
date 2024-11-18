@@ -16,9 +16,7 @@ function App() {
 
            <Sidebar/>
       </main>
-      <footer>
-        <small>&copy;</small>
-      </footer>
+      
     </div>
   );
 }

@@ -6,4 +6,3 @@ export default function BackgroundHeading(){
     )
   }
 
-//   export default BackgroundHeading;
