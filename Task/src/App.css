@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-    position: relative;
-    top : -10px;
-}
+
 
 /* Media Queries */
 @media (max-height: 950px) {
