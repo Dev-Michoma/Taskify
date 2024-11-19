@@ -11,7 +11,10 @@ export default  function TodoList({todos ,setTodos}) {
     //Event bubbling starts from the button up to the Li
     return(
         <ul>
-
+            {/* Addition of Conditional rendering */}
+            {/* The Question mark if true the first Part is Executed  An Amersand can also be used*/}
+         {todos.length === 0 ? <li className="h-full flex justify-center items-center font-semibold">
+            Start By adding a Todo List</li> : null}
             {
                 todos.map(todo =>(
                     <li key={todo.id} 
