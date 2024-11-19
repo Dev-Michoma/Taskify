@@ -14,6 +14,14 @@ import TodoList from "./TodoList";
 // We want to use the usestate because we want things to rerender
 function App() {
   const [todos ,setTodos]= useState<Todo[]>([])
+  
+  //
+  const totalNumberOfTodos = todos.length;
+  const numberOfCompletedTodos = todos.filter(
+    (todo) => todo.isCompleted
+  ).length;
+
+
 
    const handleAddTodo = (todoText:string) =>{
     if (todos.length >= 3){
@@ -58,10 +66,9 @@ function App() {
       <main className=' relative w-[972px] h-[636px] bg-white rounded-[8px] shadow-[0_4px_4px_rgba(0,0,0,0.08)]
        grid grid-cols-[7fr_4fr] grid-rows-[59px_1fr] border-b border-black/[0.08] overflow-hidden'>
               
-             <Header todos={todos} setTodos={setTodos}/>
+             <Header totalNumberOfTodos={totalNumberOfTodos} numberOfCompletedTodos={numberOfCompletedTodos}/>
              <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} handleToggleTodo={handleToggleTodo}/>
-
-           <Sidebar todos={todos}  handleAddTodo={handleAddTodo}/>
+             <Sidebar todos={todos}  handleAddTodo={handleAddTodo}/>
       </main>
       
     </div>

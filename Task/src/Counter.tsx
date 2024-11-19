@@ -1,12 +1,17 @@
 
-export default function Counter({todos }){
+type CounterProps = {
+  totalNumberOfTodos : number;
+  numberOfCompletedTodos: number;
+}
 
-  console.log(todos)
-    return(
-        <p>
-        <b>{todos.filter((todo) => todo.isCompleted).length}</b> / {todos.length} {""} todos completed
+
+
+export default function Counter({ totalNumberOfTodos ,numberOfCompletedTodos }: CounterProps) {
+  console.log(totalNumberOfTodos);
+  return (
+    <p>
+      <b>{numberOfCompletedTodos}</b> / {totalNumberOfTodos}{" "}
+      todos completed
     </p>
-    )
-  }
-
-//   export default BackgroundHeading;
+  );
+}
