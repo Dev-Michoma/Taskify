@@ -9,26 +9,6 @@ import TodoList from "./TodoList";
 function App() {
   const [todos ,setTodos]= useState(
     [
-        { 
-            id: 1,
-            text : "Buy Groceries",  //These is the specification of the initial Values
-            isCompleted : false,
-        },  
-        {
-            id: 2,
-            text : "Write Typescript",
-            isCompleted : false,
-        },  
-        {
-            id: 3,
-            text : "Learn Crypto",
-            isCompleted : false,
-        },  
-        {
-            id: 4,
-            text : "Linkedin forensics",
-            isCompleted : false,
-        },   
     
     ]
 )
