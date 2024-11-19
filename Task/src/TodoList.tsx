@@ -1,5 +1,12 @@
 import DeleteButton from "./DeleteButton"
-export default  function TodoList({todos ,handleToggleTodo ,handleDeleteTodo}) {
+import { Todo } from "./App";
+
+type TodoListProps ={
+    todos: Todo[];
+    handleDeleteTodo: (id: number) => void,
+    handleToggleTodo: (id: number) => void,
+}
+export default  function TodoList({todos ,handleToggleTodo ,handleDeleteTodo}:TodoListProps) {
    
    //Lifting the State Up
     const totalNumberofTodos = todos.length;

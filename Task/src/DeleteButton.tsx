@@ -1,7 +1,12 @@
 
 //   Passing of Todos and setTodos as Props and doing Array Destructuring
 
-export default function DeleteButton({id ,handleDeleteTodo}){
+
+type DeleteButtonProps ={
+    id: number;
+    handleDeleteTodo : (id: number) => void;
+}
+export default function DeleteButton({id ,handleDeleteTodo}:DeleteButtonProps){
     return(
         <button 
         onClick={(e) => {

@@ -5,11 +5,17 @@ import Header from "./Header";
 import Sidebar from "./Sidebar";
 import TodoList from "./TodoList";
 
+ export type Todo ={
+  id :number,
+  text : string,
+  isCompleted : boolean;
+}
+
 // We want to use the usestate because we want things to rerender
 function App() {
-  const [todos ,setTodos]= useState([])
+  const [todos ,setTodos]= useState<Todo[]>([])
 
-   const handleAddTodo = (todoText) =>{
+   const handleAddTodo = (todoText:string) =>{
     if (todos.length >= 3){
       alert("Log in to add  more than 3 todos")
     }
@@ -25,7 +31,7 @@ function App() {
     }
    }
     
-   const handleToggleTodo =(id) => {
+   const handleToggleTodo =(id:number) => {
     setTodos(
       todos.map((todo) => {
         if (todo.id === id){
@@ -40,7 +46,7 @@ function App() {
 
 
 
-   const handleDeleteTodo = (id) => {
+   const handleDeleteTodo = (id:number) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
    }
 
