@@ -1,33 +1,7 @@
 import DeleteButton from "./DeleteButton"
-import { useState } from "react"
-export default  function TodoList() {
+export default  function TodoList({todos ,setTodos}) {
    
-   const [todos ,setTodos]= useState(
-        [
-            { 
-                id: 1,
-                text : "Buy Groceries",  //These is the specification of the initial Values
-                isCompleted : false,
-            },  
-            {
-                id: 2,
-                text : "Write Typescript",
-                isCompleted : false,
-            },  
-            {
-                id: 3,
-                text : "Learn Crypto",
-                isCompleted : false,
-            },  
-            {
-                id: 4,
-                text : "Linkedin forensics",
-                isCompleted : false,
-            },   
-        
-        ]
-    )
-
+   //Lifting the State Up
     const totalNumberofTodos = todos.length;
     console.log ('totalNumberOfTodos' , totalNumberofTodos)
 

@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-export default function AddTodoForm(){
+export default function AddTodoForm({todos ,setTodos}){
     return(
     <form>
         <h2>Add a todo</h2>
