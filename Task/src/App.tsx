@@ -7,11 +7,42 @@ import TodoList from "./TodoList";
 
 // We want to use the usestate because we want things to rerender
 function App() {
-  const [todos ,setTodos]= useState(
-    [
+  const [todos ,setTodos]= useState([])
+
+   const handleAddTodo = (todoText) =>{
+    if (todos.length >= 3){
+      alert("Log in to add  more than 3 todos")
+    }
+    else{
+      setTodos(prev => [
+        ...prev,
+        {
+          id:prev.length + 1,
+          text: todoText,
+          isCompleted : false,
+        }
+      ]);
+    }
+   }
     
-    ]
-)
+   const handleToggleTodo =(id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id){
+          return {...todo, isCompleted: ! todo.isCompleted};
+        }
+        return todo;
+      })
+    )
+   };
+
+
+
+
+
+   const handleDeleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+   }
 
   return (
     <div className='flex justify-center items-center font-sans bg-[#f1d4b3] min-h-screen'>
@@ -22,9 +53,9 @@ function App() {
        grid grid-cols-[7fr_4fr] grid-rows-[59px_1fr] border-b border-black/[0.08] overflow-hidden'>
               
              <Header todos={todos} setTodos={setTodos}/>
-             <TodoList todos={todos} setTodos={setTodos}/>
+             <TodoList todos={todos} handleDeleteTodo={handleDeleteTodo} handleToggleTodo={handleToggleTodo}/>
 
-           <Sidebar todos={todos}  setTodos={setTodos}/>
+           <Sidebar todos={todos}  handleAddTodo={handleAddTodo}/>
       </main>
       
     </div>

@@ -1,5 +1,5 @@
 import DeleteButton from "./DeleteButton"
-export default  function TodoList({todos ,setTodos}) {
+export default  function TodoList({todos ,handleToggleTodo ,handleDeleteTodo}) {
    
    //Lifting the State Up
     const totalNumberofTodos = todos.length;
@@ -19,13 +19,14 @@ export default  function TodoList({todos ,setTodos}) {
                 todos.map(todo =>(
                     <li key={todo.id} 
                     onClick={() => {
-                        setTodos(todos.map(t => {
-                          if (t.id === todo.id) {
-                            // If the todo id matches, toggle the 'isCompleted' property
-                            return { ...t, isCompleted: !t.isCompleted };
-                          }
-                          return t; // Return the unchanged todo if the id doesn't match
-                        }));
+                        handleToggleTodo(todo.id)
+                        // setTodos(todos.map(t => {
+                        //   if (t.id === todo.id) {
+                        //     // If the todo id matches, toggle the 'isCompleted' property
+                        //     return { ...t, isCompleted: !t.isCompleted };
+                        //   }
+                        //   return t; // Return the unchanged todo if the id doesn't match
+                        // }));
                       }}
                       
                     className="flex justify-between items-center px-8 h-[50px]
@@ -33,7 +34,7 @@ export default  function TodoList({todos ,setTodos}) {
                         <span className={`${todo.isCompleted ? 'line-through text-[#ccc]' : ''}`}>{todo.text}</span>
 
                       {/* We are Passing the props inside Here */}
-                      <DeleteButton id={todo.id} setTodos={setTodos}/>
+                      <DeleteButton id={todo.id}  handleDeleteTodo={handleDeleteTodo}/>
               
                     </li>
                 ))
