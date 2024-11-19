@@ -28,6 +28,9 @@ export default  function TodoList() {
         ]
     )
 
+    const totalNumberofTodos = todos.length;
+    console.log ('totalNumberOfTodos' , totalNumberofTodos)
+
     //Event propagation ,Event bubbling The issue could be due to event propagation.
     // When you click on the delete button (❌), the onClick event for the list item (<li>) is also triggered because the delete button 
     //is inside the list item. This may interfere with the button's onClick handler.
