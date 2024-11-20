@@ -20,9 +20,21 @@ type TodosContextProvider ={
 
  export const TodosContext = createContext<TTodosContext >(null);
 
+ //By persisting data you get the data only Once 
+ const getInitialTodos = ()=> {
+  const savedTodos = localStorage.getItem("todos");
+  if(savedTodos){
+    return JSON.parse(savedTodos);
+  }
+else {
+  return [];
+}
+
+ }
+
 export default function TodosContextProvider ({children}:TodosContextProvider){
-    
- const [todos ,setTodos]= useState<Todo[]>([])
+  
+ const [todos ,setTodos]= useState<Todo[]>(getInitialTodos)
   
   //
   const totalNumberOfTodos = todos.length;
@@ -59,13 +71,16 @@ export default function TodosContextProvider ({children}:TodosContextProvider){
     )
    };
 
-
-
-
-
    const handleDeleteTodo = (id:number) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
    }
+ 
+
+   //useEffect will only run when the todo changes
+    useEffect(() => {
+      localStorage.setItem("todos" , JSON.stringify(todos));
+    } ,[todos]);
+
          
   // Using the UsEffect hook to fetch data
     // useEffect(() => {
