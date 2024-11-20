@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import DeleteButton from "./DeleteButton"
 import { Todo } from "./lib/types";
-import { TodosContext } from "./contexts/TodosContextProvider";
+import { useTodosContext } from "./lib/hooks";
 
 
 export default  function TodoList() {
    
-const {todos ,handleToggleTodo ,handleDeleteTodo} = useContext(TodosContext)
+const {todos ,handleToggleTodo ,handleDeleteTodo} = useTodosContext();
 
    //Lifting the State Up
     const totalNumberofTodos = todos.length;
