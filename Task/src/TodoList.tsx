@@ -1,13 +1,13 @@
+import { useContext } from "react";
 import DeleteButton from "./DeleteButton"
-import { Todo } from "./App";
+import { Todo } from "./lib/types";
+import { TodosContext } from "./contexts/TodosContextProvider";
 
-type TodoListProps ={
-    todos: Todo[];
-    handleDeleteTodo: (id: number) => void,
-    handleToggleTodo: (id: number) => void,
-}
-export default  function TodoList({todos ,handleToggleTodo ,handleDeleteTodo}:TodoListProps) {
+
+export default  function TodoList() {
    
+const {todos ,handleToggleTodo ,handleDeleteTodo} = useContext(TodosContext)
+
    //Lifting the State Up
     const totalNumberofTodos = todos.length;
     console.log ('totalNumberOfTodos' , totalNumberofTodos)
