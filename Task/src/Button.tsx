@@ -1,7 +1,7 @@
 type ButtonProps ={
     buttonType ?: "primary" | "secondary";
     children : React.ReactNode;
-    onClick : ()=> Promise<void>; //These is a function that has no Parametres
+    onClick ?: ()=> Promise<void>; //These is a function that has no Parametres
 }
 
 
