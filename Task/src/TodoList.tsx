@@ -2,6 +2,8 @@ import { useContext } from "react";
 import DeleteButton from "./DeleteButton"
 import { Todo } from "./lib/types";
 import { useTodosContext } from "./lib/hooks";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 
 export default  function TodoList() {

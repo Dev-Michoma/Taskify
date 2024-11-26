@@ -1,11 +1,13 @@
-import { useState } from "react";
-import AddTodoForm from "./AddTodoForm";
+// import { useState } from "react";
+// import AddTodoForm from "./AddTodoForm";
 import BackgroundHeading from "./BackgroundHeading";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import TodoList from "./TodoList";
-import { Todo } from "./lib/types";
-import TodosContextProvider from "./contexts/TodosContextProvider";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import { Todo } from "./lib/types";
+// import TodosContextProvider from "./contexts/TodosContextProvider";
 
 // We want to use the usestate because we want things to rerender
 function App() {
@@ -22,6 +24,7 @@ function App() {
              <Header />
              <TodoList />
              <Sidebar />
+             <ToastContainer position="top-right"/>
       </main>
       
     </div>
