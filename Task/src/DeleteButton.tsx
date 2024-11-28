@@ -12,7 +12,7 @@ export default function DeleteButton({id ,handleDeleteTodo}:DeleteButtonProps){
         onClick={(e) => {
             e.stopPropagation(); // Prevent the li's onClick from being triggered
             handleDeleteTodo(id);
-            toast.success('Item deleted successfully!');
+            toast.success('Item deleted successfully!');//Addition of the Taskify Prompt
         }}
     >
         ❌
